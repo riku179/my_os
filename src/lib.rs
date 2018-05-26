@@ -2,6 +2,7 @@
 #![feature(const_fn)]
 #![feature(const_unique_new)]
 #![feature(unique)]
+#![feature(ptr_internals)]
 #![no_std]
 
 extern crate rlibc;
