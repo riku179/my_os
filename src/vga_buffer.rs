@@ -13,22 +13,22 @@ pub static WRITER: Mutex<Writer> = Mutex::new(Writer {
 #[derive(Debug, Clone, Copy)]
 #[repr(u8)]
 pub enum Color {
-    Black      = 0,
-    Blue       = 1,
-    Green      = 2,
-    Cyan       = 3,
-    Red        = 4,
-    Magenta    = 5,
-    Brown      = 6,
-    LightGray  = 7,
-    DarkGray   = 8,
-    LightBlue  = 9,
+    Black = 0,
+    Blue = 1,
+    Green = 2,
+    Cyan = 3,
+    Red = 4,
+    Magenta = 5,
+    Brown = 6,
+    LightGray = 7,
+    DarkGray = 8,
+    LightBlue = 9,
     LightGreen = 10,
-    LightCyan  = 11,
-    LightRed   = 12,
-    Pink       = 13,
-    Yellow     = 14,
-    White      = 15,
+    LightCyan = 11,
+    LightRed = 12,
+    Pink = 13,
+    Yellow = 14,
+    White = 15,
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -85,12 +85,12 @@ impl Writer {
     #[allow(dead_code)]
     pub fn write_str(&mut self, s: &str) {
         for byte in s.bytes() {
-        self.write_byte(byte)
+            self.write_byte(byte)
         }
     }
 
     fn buffer(&mut self) -> &mut Buffer {
-        unsafe{ self.buffer.as_mut() }
+        unsafe { self.buffer.as_mut() }
     }
 
     fn new_line(&mut self) {
@@ -101,7 +101,7 @@ impl Writer {
                 buffer.chars[row - 1][col].write(character);
             }
         }
-        self.clear_row(BUFFER_HEIGHT-1);
+        self.clear_row(BUFFER_HEIGHT - 1);
         self.column_position = 0;
     }
 
@@ -119,7 +119,7 @@ impl Writer {
 impl fmt::Write for Writer {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         for byte in s.bytes() {
-          self.write_byte(byte)
+            self.write_byte(byte)
         }
         Ok(())
     }
